@@ -6,7 +6,16 @@ function ApplePayButton({ amount }) {
   useEffect(() => {
     // Check if Apple Pay is available in the current environment
     if (window.ApplePaySession) {
-      setApplePayAvailable(true);
+      var merchantIdentifier = "com.magilhub.customerapp";
+      var promise =
+        window.ApplePaySession.canMakePaymentsWithActiveCard(
+          merchantIdentifier
+        );
+      promise.then(function (canMakePayments) {
+        if (canMakePayments)
+          // Display Apple Pay button here.
+          setApplePayAvailable(true);
+      });
     }
   }, []);
 
