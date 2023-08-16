@@ -33,7 +33,8 @@ function ApplePayButton({ amount }) {
     session.onpaymentauthorized = (event) => {
       // Process the payment on your server
       // Use event.payment.token to get the payment token
-      const paymentToken = event.payment.token;
+
+      //const paymentToken = event.payment.token;
 
       // Complete the payment
       session.completePayment(window.ApplePaySession.STATUS_SUCCESS);
